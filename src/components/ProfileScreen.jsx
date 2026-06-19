@@ -19,7 +19,7 @@ const STATS = [
 
 export default function ProfileScreen({ onConnect }) {
   return (
-    <section style={{ paddingBottom: 24 }}>
+    <section style={{ paddingBottom: 96 }}>
       <div className="header">
         <h1><BookOpen size={18} /> 마이페이지</h1>
       </div>
