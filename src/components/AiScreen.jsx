@@ -95,7 +95,7 @@ export default function AiScreen({ messages = [], setMessages }) {
   }
 
   return (
-    <section style={{ position: 'relative' }}>
+    <section style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* 헤더 */}
       <div className="header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {isWritingPost ? (
@@ -120,7 +120,7 @@ export default function AiScreen({ messages = [], setMessages }) {
 
       {isWritingPost ? (
         /* 글쓰기 작성 페이지 */
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: '16px', flex: 1, overflowY: 'auto' }}>
           {/* 사진 업로드 영역 */}
           <div 
             className="empty-box" 
@@ -191,12 +191,12 @@ export default function AiScreen({ messages = [], setMessages }) {
         </div>
       ) : segment === 'coach' ? (
         /* AI 코칭 탭 */
-        <>
-          <div style={{ textAlign: 'center', marginBottom: 12 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
+          <div style={{ textAlign: 'center', marginBottom: 12, flexShrink: 0 }}>
             <span className="tag-pill">오늘의 제철 요리 추천</span>
           </div>
 
-          <div className="chat" style={{ maxHeight: '380px', overflowY: 'auto', paddingBottom: '10px' }}>
+          <div className="chat" style={{ flex: 1, overflowY: 'auto', paddingBottom: '10px' }}>
             {messages.map((m, i) => (
               <div key={i} className={`msg ${m.from}`} style={{ maxWidth: '85%', alignSelf: m.from === 'ai' ? 'flex-start' : 'flex-end', marginBottom: '8px' }}>
                 {m.from === 'ai' && (
@@ -216,40 +216,42 @@ export default function AiScreen({ messages = [], setMessages }) {
             <div ref={chatEndRef} />
           </div>
 
-          <div 
-            className="recipe-card card" 
-            style={{ margin: '12px 16px', cursor: 'pointer' }}
-            onClick={() => { setInput('라구 소스 활용 요리 추천해줘'); setTimeout(handleSend, 50); }}
-          >
-            <div style={{
-              height: 120, borderRadius: 'var(--r-md)', marginBottom: 10, overflow: 'hidden',
-              background: 'linear-gradient(160deg,#ffb285,#a33115)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 40
-            }}>🍝</div>
-            <p style={{ margin: '0 0 4px', fontSize: 14, fontWeight: 700, color: 'var(--c-main)', display: 'flex', alignItems: 'center', gap: 4 }}>
-              풍미 가득한 오리지널 라구 파스타 <ArrowRight size={14} />
-            </p>
-          </div>
+          <div style={{ flexShrink: 0 }}>
+            <div 
+              className="recipe-card card" 
+              style={{ margin: '12px 16px', cursor: 'pointer' }}
+              onClick={() => { setInput('라구 소스 활용 요리 추천해줘'); setTimeout(handleSend, 50); }}
+            >
+              <div style={{
+                height: 120, borderRadius: 'var(--r-md)', marginBottom: 10, overflow: 'hidden',
+                background: 'linear-gradient(160deg,#ffb285,#a33115)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 40
+              }}>🍝</div>
+              <p style={{ margin: '0 0 4px', fontSize: 14, fontWeight: 700, color: 'var(--c-main)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                풍미 가득한 오리지널 라구 파스타 <ArrowRight size={14} />
+              </p>
+            </div>
 
-          <div className="quick-replies">
-            <button onClick={() => { setInput('라구 소스 보관 방법 알려줘'); setTimeout(handleSend, 50); }}>보관 방법 보기</button>
-            <button onClick={() => { setInput('다른 파스타 메뉴 추천해줘'); setTimeout(handleSend, 50); }}>다른 파스타 추천</button>
-          </div>
+            <div className="quick-replies">
+              <button onClick={() => { setInput('라구 소스 보관 방법 알려줘'); setTimeout(handleSend, 50); }}>보관 방법 보기</button>
+              <button onClick={() => { setInput('다른 파스타 메뉴 추천해줘'); setTimeout(handleSend, 50); }}>다른 파스타 추천</button>
+            </div>
 
-          <div className="chat-input">
-            <input 
-              type="text" 
-              placeholder="AI 셰프에게 물어보세요..." 
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-            <button className="send-btn" onClick={handleSend}><Send size={16} /></button>
+            <div className="chat-input">
+              <input 
+                type="text" 
+                placeholder="AI 셰프에게 물어보세요..." 
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+              <button className="send-btn" onClick={handleSend}><Send size={16} /></button>
+            </div>
           </div>
-        </>
+        </div>
       ) : (
         /* 커뮤니티 탭 */
-        <div style={{ position: 'relative', paddingBottom: 80, paddingLeft: 16, paddingRight: 16 }}>
+        <div style={{ position: 'relative', flex: 1, overflowY: 'auto', paddingBottom: 80, paddingLeft: 16, paddingRight: 16 }}>
           {/* 상단 퀵 글쓰기 링크 박스 */}
           <div 
             onClick={() => setIsWritingPost(true)}
