@@ -26,6 +26,7 @@ body {
 .app-shell {
   width: 390px;
   height: 780px;
+  max-height: 100%;
   background: var(--c-bg);
   border-radius: 36px;
   overflow: hidden;
