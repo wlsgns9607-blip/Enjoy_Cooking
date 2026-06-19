@@ -58,7 +58,7 @@ export default function MapScreen({ onAskAi }) {
   const regions = REGION_DATA[selected] || []
 
   return (
-    <section style={{ position: 'relative', height: '100%', overflowY: 'auto' }}>
+    <section style={{ position: 'relative', minHeight: '100%' }}>
       <div className="header">
         <h1><BookOpen size={18} /> 요리가 즐거워!</h1>
       </div>

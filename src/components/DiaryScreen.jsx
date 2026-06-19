@@ -66,7 +66,7 @@ export default function DiaryScreen() {
   }
 
   return (
-    <section style={{ position: 'relative', height: '100%', overflowY: 'auto' }}>
+    <section style={{ position: 'relative', minHeight: '100%' }}>
       {/* 헤더 */}
       <div className="header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 16px 12px' }}>
         {isWriting ? (
