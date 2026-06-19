@@ -8,41 +8,88 @@ const ITEMS = [
 ]
 
 export default function BottomNav({ active, onChange }) {
-  return (
-    <nav className="bottom-nav">
-      {ITEMS.map(({ key, label, Icon }) => {
-        const isMap = key === 'map'
-        if (isMap) {
+  const isMapScreen = active === 'map'
+
+  if (isMapScreen) {
+    return (
+      <nav
+        className="bottom-nav-floating"
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          left: 16,
+          right: 16,
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          background: 'transparent',
+          border: 'none',
+          boxShadow: 'none',
+          zIndex: 100,
+          pointerEvents: 'none'
+        }}
+      >
+        {ITEMS.map(({ key, label, Icon }) => {
+          const isActive = active === key
           return (
             <button
               key={key}
-              className={`nav-item ${active === key ? 'active' : ''}`}
               onClick={() => onChange(key)}
-              style={{ position: 'relative', overflow: 'visible', zIndex: 10 }}
+              style={{
+                background: 'none',
+                border: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+                pointerEvents: 'auto',
+                padding: 0
+              }}
             >
               <div style={{
-                width: 46, height: 46, borderRadius: '50%',
-                background: active === key ? 'var(--c-green)' : '#fff',
-                color: active === key ? '#fff' : 'var(--c-text-soft)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+                width: 50,
+                height: 50,
+                borderRadius: '50%',
+                background: isActive ? 'var(--c-green)' : '#fff',
+                color: isActive ? '#fff' : 'var(--c-text-soft)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 transition: 'all 0.2s',
-                marginTop: -18,
-                border: active === key ? 'none' : '1px solid var(--c-border)'
+                border: isActive ? 'none' : '1px solid var(--c-border)'
               }}>
                 <Icon size={22} />
               </div>
-              <span style={{ fontSize: 10, marginTop: 4, fontWeight: active === key ? 700 : 500 }}>{label}</span>
+              <span style={{
+                fontSize: 10,
+                marginTop: 6,
+                fontWeight: isActive ? 700 : 500,
+                color: isActive ? 'var(--c-green)' : 'var(--c-text-soft)',
+                background: 'rgba(255,255,255,0.9)',
+                padding: '2px 6px',
+                borderRadius: 4,
+                boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+              }}>{label}</span>
             </button>
           )
-        }
+        })}
+      </nav>
+    )
+  }
+
+  // Standard bottom nav for other screens
+  return (
+    <nav className="bottom-nav">
+      {ITEMS.map(({ key, label, Icon }) => {
+        const isActive = active === key
         return (
           <button
             key={key}
-            className={`nav-item ${active === key ? 'active' : ''}`}
+            className={`nav-item ${isActive ? 'active' : ''}`}
             onClick={() => onChange(key)}
           >
-            <div className={`nav-icon-wrap ${active === key ? 'active' : ''}`}>
+            <div className={`nav-icon-wrap ${isActive ? 'active' : ''}`}>
               <Icon size={20} />
             </div>
             <span>{label}</span>
