@@ -74,7 +74,13 @@ export default function App() {
     <div className="app-shell">
       <div 
         className="screen-content" 
-        style={screen === 'ai' ? { display: 'flex', flexDirection: 'column', overflow: 'hidden' } : { display: 'block', overflowY: 'auto' }}
+        style={
+          screen === 'map' 
+            ? { height: '100%', overflowY: 'auto' } 
+            : screen === 'ai' 
+              ? { height: 'calc(100% - 72px)', display: 'flex', flexDirection: 'column', overflow: 'hidden' } 
+              : { height: 'calc(100% - 72px)', overflowY: 'auto' }
+        }
       >
         {screen === 'map' && <MapScreen onAskAi={handleAskAi} />}
         {screen === 'ai' && <AiScreen messages={chatMessages} setMessages={setChatMessages} />}
