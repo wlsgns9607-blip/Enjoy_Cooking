@@ -73,14 +73,14 @@ export default function App() {
   return (
     <div className="app-shell">
       <div 
+        key={screen}
         className="screen-content" 
-        style={
-          screen === 'map' 
-            ? { height: '100%', display: 'block', overflowY: 'auto' } 
-            : screen === 'ai' 
-              ? { height: '100%', paddingBottom: 72, display: 'flex', flexDirection: 'column', overflow: 'hidden' } 
-              : { height: '100%', paddingBottom: 72, display: 'block', overflowY: 'auto' }
-        }
+        style={{
+          display: screen === 'ai' ? 'flex' : 'block',
+          flexDirection: screen === 'ai' ? 'column' : 'unset',
+          overflowY: screen === 'ai' ? 'hidden' : 'auto',
+          height: '100%'
+        }}
       >
         {screen === 'map' && <MapScreen onAskAi={handleAskAi} />}
         {screen === 'ai' && <AiScreen messages={chatMessages} setMessages={setChatMessages} />}
