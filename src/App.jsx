@@ -76,10 +76,10 @@ export default function App() {
         className="screen-content" 
         style={
           screen === 'map' 
-            ? { height: '100%', overflowY: 'auto' } 
+            ? { height: '100%', display: 'block', overflowY: 'auto' } 
             : screen === 'ai' 
               ? { height: 'calc(100% - 72px)', display: 'flex', flexDirection: 'column', overflow: 'hidden' } 
-              : { height: 'calc(100% - 72px)', overflowY: 'auto' }
+              : { height: 'calc(100% - 72px)', display: 'block', overflowY: 'auto' }
         }
       >
         {screen === 'map' && <MapScreen onAskAi={handleAskAi} />}
