@@ -78,8 +78,8 @@ export default function App() {
           screen === 'map' 
             ? { height: '100%', display: 'block', overflowY: 'auto' } 
             : screen === 'ai' 
-              ? { height: 'calc(100% - 72px)', display: 'flex', flexDirection: 'column', overflow: 'hidden' } 
-              : { height: 'calc(100% - 72px)', display: 'block', overflowY: 'auto' }
+              ? { height: '100%', paddingBottom: 72, display: 'flex', flexDirection: 'column', overflow: 'hidden' } 
+              : { height: '100%', paddingBottom: 72, display: 'block', overflowY: 'auto' }
         }
       >
         {screen === 'map' && <MapScreen onAskAi={handleAskAi} />}
