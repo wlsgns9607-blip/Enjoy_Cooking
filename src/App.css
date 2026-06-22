@@ -591,3 +591,116 @@ body {
   }
 }
 
+/* 모바일 마이페이지 반응형 (작은 화면 대응) */
+@media (max-width: 420px) {
+  /* 프로필 히어로 */
+  .profile-hero {
+    margin: 0 12px 10px;
+    padding: 16px 12px 20px;
+    border-radius: 16px;
+  }
+  .profile-avatar-wrapper {
+    width: 80px; height: 80px;
+  }
+  .profile-avatar-lg {
+    width: 80px; height: 80px;
+    font-size: 36px;
+  }
+  .profile-avatar-ring { inset: -4px; }
+  .profile-level-badge-float {
+    font-size: 9px; padding: 2px 8px;
+  }
+  .profile-nickname { font-size: 17px; margin-bottom: 6px; }
+  .profile-title-pill { font-size: 11px; padding: 4px 12px; }
+
+  /* 프로그레스 카드 */
+  .profile-progress-card {
+    margin: 0 12px 10px; padding: 12px 14px;
+  }
+  .progress-label { font-size: 12px; }
+  .progress-points { font-size: 12px; padding: 2px 8px; }
+  .progress-bar-track { height: 8px; }
+  .progress-percent { font-size: 13px; min-width: 30px; }
+
+  /* 통계 카드 — 작은 화면에서 간격과 패딩 줄이기 */
+  .profile-stat-row {
+    gap: 6px; padding: 0 12px 10px;
+  }
+  .profile-stat-card {
+    padding: 12px 6px 10px;
+    border-radius: 12px;
+  }
+  .stat-icon-circle {
+    width: 30px; height: 30px;
+    font-size: 15px; margin-bottom: 6px;
+  }
+  .stat-value { font-size: 18px; }
+  .stat-unit { font-size: 10px; }
+  .stat-label-text { font-size: 10px; }
+
+  /* 연동 배너 — 좁은 화면에서 세로 배치 */
+  .profile-connect-banner {
+    margin: 0 12px 10px; padding: 12px 14px;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .connect-icon-wrap {
+    width: 36px; height: 36px;
+  }
+  .connect-text { flex: 1; min-width: 0; }
+  .connect-title { font-size: 12px; }
+  .connect-desc { font-size: 10px; }
+  .connect-btn {
+    padding: 7px 14px; font-size: 11px;
+  }
+
+  /* 배지 컬렉션 */
+  .profile-badge-section {
+    margin: 0 12px 10px; padding: 14px;
+  }
+  .badge-title-group { font-size: 13px; }
+  .profile-badge-grid { gap: 8px; }
+  .profile-badge-circle {
+    width: 44px; height: 44px;
+  }
+  .profile-badge-circle svg { width: 16px; height: 16px; }
+  .profile-badge-label { font-size: 9px; }
+
+  /* 메뉴 리스트 */
+  .profile-menu-list { margin: 0 12px 0; }
+  .profile-menu-item {
+    padding: 12px 14px; font-size: 13px;
+  }
+  .menu-item-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+  }
+  .menu-item-left { gap: 10px; }
+
+  /* 헤더 바 */
+  .profile-header-bar { padding: 14px 14px 8px; }
+}
+
+/* 아주 좁은 화면 (320px 이하) */
+@media (max-width: 340px) {
+  .profile-hero { margin: 0 8px 8px; padding: 12px 8px 16px; }
+  .profile-avatar-wrapper { width: 68px; height: 68px; }
+  .profile-avatar-lg { width: 68px; height: 68px; font-size: 30px; }
+  .profile-nickname { font-size: 15px; }
+
+  .profile-stat-row { gap: 4px; padding: 0 8px 8px; }
+  .profile-stat-card { padding: 10px 4px 8px; }
+  .stat-value { font-size: 16px; }
+  .stat-icon-circle { width: 26px; height: 26px; font-size: 13px; }
+
+  .profile-connect-banner {
+    margin: 0 8px 8px;
+    flex-direction: column; text-align: center;
+  }
+  .connect-btn { width: 100%; }
+
+  .profile-badge-section { margin: 0 8px 8px; padding: 12px; }
+  .profile-badge-circle { width: 38px; height: 38px; }
+  .profile-badge-grid { gap: 6px; }
+
+  .profile-menu-list { margin: 0 8px 0; }
+}
+
