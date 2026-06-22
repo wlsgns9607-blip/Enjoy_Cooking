@@ -270,7 +270,13 @@ export default function AiScreen({ messages = [], setMessages }) {
             <div style={{ flex: 1, fontSize: 13, color: 'var(--c-text-soft)', textAlign: 'left' }}>
               오늘 만든 요리를 커뮤니티에 자랑해 보세요...
             </div>
-            <Plus size={18} style={{ color: 'var(--c-main)' }} />
+            <div style={{
+              width: 42, height: 42, borderRadius: '50%', background: 'var(--c-main)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 4px 8px rgba(220, 110, 60, 0.25)', flexShrink: 0
+            }}>
+              <Plus size={24} style={{ color: '#ffffff', strokeWidth: 2.5 }} />
+            </div>
           </div>
 
           {posts.map((p, i) => (
